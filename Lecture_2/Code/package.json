@@ -1,0 +1,14 @@
+{
+  "name": "react_lecture_2",
+  "version": "1.0.0",
+  "description": "Lecture 2 React",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Govind",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
