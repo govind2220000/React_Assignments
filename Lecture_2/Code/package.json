@@ -2,7 +2,6 @@
   "name": "react_lecture_2",
   "version": "1.0.0",
   "description": "Lecture 2 React",
-  "main": "App.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,5 +9,12 @@
   "license": "ISC",
   "devDependencies": {
     "parcel": "^2.12.0"
-  }
+  },
+  "dependencies": {
+    "@types/react-dom": "^18.2.22",
+    "react-dom": "^18.2.0"
+  },
+  "browserlist": [
+    "last 2 versions"
+  ]
 }
