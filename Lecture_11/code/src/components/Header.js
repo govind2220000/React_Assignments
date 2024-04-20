@@ -12,6 +12,8 @@ const Header = () => {
 
   const [btnNameReact, setBtnNameReact] = useState("Login");
   console.log("header render");
+  const css =
+    "p-2 w-auto h-10 mx-2 bg-gray-100 shadow-md transition-shadow duration-300 hover:shadow-lg hover:shadow-gray-400";
 
   return (
     <div className="flex justify-between bg-gray-100">
@@ -21,23 +23,23 @@ const Header = () => {
         </Link>
       </div>
       <div className="flex items-center">
-        <ul className="flex">
-          <li className="p-4">{`Status:${useOnlineStatus() ? "🟢" : "❌"}`}</li>
-          <li className="p-4">
+        <ul className="flex ">
+          <li className={css}>{`Status:${useOnlineStatus() ? "🟢" : "❌"}`}</li>
+          <li className={css}>
             <Link to="/">Home</Link>
           </li>
-          <li className="p-4">
+          <li className={css}>
             <Link to="/about">About Us</Link>
           </li>
-          <li className="p-4">
+          <li className={css}>
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li className="p-4">
+          <li className={css}>
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="p-4">Cart</li>
+          <li className={css}>Cart</li>
           <button
-            className="p-4"
+            className={css}
             onClick={() => {
               //   btnName = 'Logout';
               btnNameReact === "Login"

@@ -66,11 +66,11 @@ const Body = () => {
       </div> */}
       <div className="flex justify-center p-4 m-4">
         <div className="flex px-2 items-center w-1/2">
-          <form className="flex p-2 shadow-lg bg-gray-100 rounded-lg focus:outline-none focus:ring-2 w-full justify-between">
+          <form className="flex p-2 shadow-lg bg-gray-100 rounded-lg focus:outline-none focus:ring-2 w-full justify-between transition-shadow duration-300 hover:shadow-lg hover:shadow-gray-400">
             <input
               type="text"
               placeholder="Search a restaurant"
-              className="bg-gray-100  outline-none w-3/4"
+              className="bg-gray-100  outline-none w-full "
               value={searchText}
               onChange={(e) => {
                 setSearchText(e.target.value);
@@ -110,7 +110,7 @@ const Body = () => {
           </form>
         </div>
         <button
-          className="shadow-lg  bg-gray-100  rounded-lg p-2 mx-4 "
+          className="shadow-lg  bg-gray-100  rounded-lg p-2 mx-4 transition-shadow duration-300 hover:shadow-lg hover:shadow-gray-400"
           onClick={() => {
             // * Filter logic
             const filteredList = listOfRestaurants.filter(
@@ -131,10 +131,11 @@ const Body = () => {
 
         {filteredRestaurant.map((restaurant) => (
           <Link
+            className="shadow-lg m-2 rounded-md transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-800"
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            {console.log(restaurant)}
+            {/* {console.log(restaurant)} */}
             {restaurant.info.avgRating > 4 ? (
               <RestaurantCardPromoted
                 resData={restaurant}
