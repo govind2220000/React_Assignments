@@ -6,6 +6,7 @@ import useRestaurantMenu from "../utils/useRestaurantMenu.js";
 import RestaurantCategory from "./RestaurantCategory.js";
 const RestaurantMenu = () => {
   //const [resInfo, setResInfo] = useState(null);
+  const [showindex, setShowIndex] = useState(null);
   const { resId } = useParams();
   // useEffect(() => {
   //   fetchMenu();
@@ -38,16 +39,24 @@ const RestaurantMenu = () => {
     resInfo.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards.filter((c) =>
       c?.card?.card["@type"].includes("ItemCategory")
     );
-  console.log(categories);
-
+  //console.log(categories);
+  const toggleCategory = (index) => {
+    if (showindex === index) {
+      setShowIndex(null); // Collapse if already expanded
+      console.log(`${index}=> collapsed `);
+    } else {
+      setShowIndex(index); // Expand the clicked category
+      console.log(`${index}=> expanded `);
+    }
+  };
   return (
     <div className="flex flex-col items-center w-full text-center">
       <div>
-        <h1 className="font-extrabold text-3xl leading-7 tracking-tight">
+        <h1 className="font-extrabold font-['Basis_Grotesque_Pro'] text-3xl leading-5 tracking-tight">
           {name}
         </h1>
       </div>
-      <p className="font-bold text-lg my-6">
+      <p className="font-bold text-lg my-6  font-['Basis_Grotesque'] leading-5 tracking-tight">
         {cuisines.join(", ")} - {costForTwoMessage}
       </p>
       <div className="w-[20vw] shadow-lg p-2 rounded-md text-black">
@@ -57,11 +66,20 @@ const RestaurantMenu = () => {
         ></img>
       </div>
 
-      <h2>Menu</h2>
+      <h2 className="font-semibold font-['Basis_Grotesque_Pro'] tracking-wide text-xl pt-4">
+        Menu
+      </h2>
       <ul className="w-full">
-        {categories.map((category) => (
+        {categories.map((category, index) => (
           <div key={category.card.card.title} className="w-full m-4">
-            <RestaurantCategory data={category}></RestaurantCategory>
+            <RestaurantCategory
+              data={category}
+              showItems={index === showindex}
+              setShowIndex={() => {
+                toggleCategory(index);
+                console.log(index);
+              }}
+            ></RestaurantCategory>
             {/* {item.card.info.price / 100 || item.card.info.defaultPrice / 100} */}
           </div>
         ))}
