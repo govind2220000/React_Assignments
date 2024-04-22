@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./components/About.js";
@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import Body from "./components/Body";
 import { lazy } from "react";
 import Shimmer from "./components/Shimmer.js";
+import UserContext from "./utils/UserContext.js";
 
 const Grocery = lazy(() => import("./components/Grocery.js"));
 
@@ -83,11 +84,21 @@ const Footer = () => {
 
 const AppLayout = () => {
   // console.log(<Body />);
+  const [username, setUserName] = useState();
+
+  useEffect(() => {
+    const data = {
+      name: "Govind",
+    };
+    setUserName(data.name);
+  }, []);
   return (
-    <div className="bg-gray-100">
-      <Header />
-      <Outlet></Outlet>
-    </div>
+    <UserContext.Provider value={{ loggedInUser: username, setUserName }}>
+      <div className="bg-gray-100">
+        <Header />
+        <Outlet></Outlet>
+      </div>
+    </UserContext.Provider>
   );
 };
 

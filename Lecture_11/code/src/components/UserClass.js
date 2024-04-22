@@ -1,4 +1,5 @@
 import React from "react";
+import UserContext from "../utils/UserContext.js";
 
 class UserClass extends React.Component {
   constructor(props) {
@@ -20,8 +21,11 @@ class UserClass extends React.Component {
     //console.log(this.props.name + " Child Render Called");
     console.log(name + " Child Render Called");
     return (
-      <div className="user-card">
-        {/* <h1>Count:{this.state.count}</h1>
+      //Using Context variable in class based components using .Consumer
+      <UserContext.Consumer>
+        {({ loggedInUser }) => (
+          <div className="user-card">
+            {/* <h1>Count:{this.state.count}</h1>
         <button
           onClick={() => {
             this.setState({
@@ -33,11 +37,14 @@ class UserClass extends React.Component {
           Increase Count
         </button>
         <h1>Count2:{this.state.count2}</h1> */}
-        <img src={avatar_url} alt={name} width="200" height="200"></img>
-        <h1>Name:{name}</h1>
-        <h2>Location:{location}</h2>
-        {/* <h3>Contact:{contact}</h3> */}
-      </div>
+            <img src={avatar_url} alt={name} width="200" height="200"></img>
+            <h1>Name:{name}</h1>
+            <h2>Location:{location}</h2>
+            {/* <h3>Contact:{contact}</h3> */}
+            <h3>User:{loggedInUser}</h3>
+          </div>
+        )}
+      </UserContext.Consumer>
     );
   }
 

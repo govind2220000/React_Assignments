@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
+import UserContext from "../utils/UserContext.js";
 
 const Header = () => {
   //   let btnName = 'Login';
@@ -14,6 +15,7 @@ const Header = () => {
   console.log("header render");
   const css =
     "p-2 w-auto h-10 mx-2 bg-gray-100 shadow-md transition-shadow duration-300 hover:shadow-lg hover:shadow-gray-400";
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   return (
     <div className="flex justify-between bg-gray-100">
@@ -50,6 +52,17 @@ const Header = () => {
           >
             {btnNameReact}
           </button>
+          <li className={css}>{loggedInUser}</li> {/*Context variable */}
+          {/* The below butto is used to update the context varibale which we have binded in our App.js */}
+          {/* <button
+            className={css}
+            onClick={() => {
+              //   btnName = 'Logout';
+              setUserName("New Govind");
+            }}
+          >
+            NewButton
+          </button> */}
         </ul>
       </div>
     </div>
