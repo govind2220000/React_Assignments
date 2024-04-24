@@ -2,7 +2,7 @@ import React from "react";
 import { CDN_URL } from "../utils/constants.js";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice.js";
-const ItemList = ({ foodItemCards, add = true }) => {
+const ItemList = ({ foodItemCards, addBtn = true, uniqueId = true }) => {
   const dispath = useDispatch();
 
   const handleItem = (item) => {
@@ -15,7 +15,11 @@ const ItemList = ({ foodItemCards, add = true }) => {
         return (
           <div
             className="flex justify-between border-b-2 m-auto w-full h-full"
-            key={item?.card?.info?.id}
+            key={
+              uniqueId === true
+                ? item?.card?.info?.id
+                : Date.now() + Math.floor(Math.random() * 1000000)
+            }
           >
             <div className="flex flex-col h-full w-full">
               <h4 className="text-left tracking-normal leading-5 text-[#02060cbf] text-[18px] font-bold my-2 font-['Basis_Grotesque_Pro_Bold']">
@@ -30,7 +34,7 @@ const ItemList = ({ foodItemCards, add = true }) => {
             </div>
 
             <div className="w-1/4 mx-2 relative">
-              {add && (
+              {addBtn && (
                 <button
                   className="absolute bottom-0 transform -translate-x-1/2 shadow-md bg-black text-white rounded-lg p-2"
                   onClick={() => handleItem(item)}

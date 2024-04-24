@@ -17,15 +17,26 @@ const Cart = () => {
     dispatch(clearCart());
   };
   return (
-    <div className="">
-      <div>
-        <span>Cart</span>
+    <div className="m-20">
+      <div className="flex justify-between w-full m-auto p-2 shadow-lg bg-gray-150 rounded-lg focus:outline-none focus:ring-2 transition-shadow duration-300 hover:shadow-lg hover:shadow-gray-400">
+        <span className=" text-[#02060cbf] text-[18px] font-bold tracking-normal leading-10 my-2 font-['Basis_Grotesque_Pro_Bold'] ">
+          Cart
+        </span>
         <span>
-          <button onClick={handleClearCart}>ClearCart</button>
+          <button
+            onClick={handleClearCart}
+            className="text-[#02060cbf] text-[18px] font-bold tracking-normal leading-10 my-2 font-['Basis_Grotesque_Pro_Bold']"
+          >
+            ClearCart
+          </button>
         </span>
       </div>
-      <div>
-        <ItemList foodItemCards={cartItems} add={false}></ItemList>
+      <div className="py-2">
+        <ItemList
+          foodItemCards={cartItems}
+          addBtn={false}
+          uniqueId={Date.now() + Math.floor(Math.random() * 1000000)}
+        ></ItemList>
       </div>
     </div>
   );
