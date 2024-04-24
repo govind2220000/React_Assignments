@@ -25,7 +25,7 @@ const Body = () => {
 
   const status = useOnlineStatus();
   if (!status) {
-    return <h1>Looks like you are offline</h1>;
+    return <h1 className="">Looks like you are offline</h1>;
   }
 
   // * After initial redering is completed the useEffect will run and then it will rerender again with new data that is the reason if we see in

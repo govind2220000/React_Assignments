@@ -98,9 +98,14 @@ const AppLayout = () => {
   return (
     <Provider store={appStore}>
       <UserContext.Provider value={{ loggedInUser: username, setUserName }}>
-        <div className="bg-gray-100">
-          <Header />
-          <Outlet></Outlet>
+        <div className="bg-gray-100 relative">
+          {/* fixed w-full border-b-2 */}
+          <div className="">
+            <Header />
+          </div>
+          <div className="">
+            <Outlet className=""></Outlet>
+          </div>
         </div>
       </UserContext.Provider>
     </Provider>

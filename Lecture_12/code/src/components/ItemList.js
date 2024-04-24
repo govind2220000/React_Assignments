@@ -1,7 +1,13 @@
 import React from "react";
 import { CDN_URL } from "../utils/constants.js";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice.js";
+const ItemList = ({ foodItemCards, add = true }) => {
+  const dispath = useDispatch();
 
-const ItemList = ({ foodItemCards }) => {
+  const handleItem = (item) => {
+    dispath(addItem(item));
+  };
   //console.log(foodItemCards);
   return (
     <ul className="">
@@ -24,9 +30,14 @@ const ItemList = ({ foodItemCards }) => {
             </div>
 
             <div className="w-1/4 mx-2 relative">
-              <button className="absolute bottom-0 transform -translate-x-1/2 shadow-md bg-black text-white rounded-lg p-2">
-                Add+
-              </button>
+              {add && (
+                <button
+                  className="absolute bottom-0 transform -translate-x-1/2 shadow-md bg-black text-white rounded-lg p-2"
+                  onClick={() => handleItem(item)}
+                >
+                  Add+
+                </button>
+              )}
               <img
                 src={CDN_URL + item?.card?.info?.imageId}
                 className=" w-40 h-full p-2"

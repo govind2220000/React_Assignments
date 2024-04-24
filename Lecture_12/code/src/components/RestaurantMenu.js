@@ -37,7 +37,7 @@ const RestaurantMenu = () => {
 
   const categories =
     resInfo.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards.filter((c) =>
-      c?.card?.card["@type"].includes("ItemCategory")
+      c?.card?.card["@type"].includes("v2.ItemCategory")
     );
   //console.log(categories);
   const toggleCategory = (index) => {
@@ -50,7 +50,7 @@ const RestaurantMenu = () => {
     }
   };
   return (
-    <div className="flex flex-col items-center w-full text-center">
+    <div className="flex flex-col items-center w-full text-center pt-48">
       <div>
         <h1 className="font-extrabold font-['Basis_Grotesque_Pro'] text-3xl leading-5 tracking-tight">
           {name}
