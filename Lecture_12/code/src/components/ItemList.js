@@ -7,6 +7,7 @@ const ItemList = ({ foodItemCards, addBtn = true, uniqueId = true }) => {
 
   const handleItem = (item) => {
     dispath(addItem(item));
+    //alert("Item Added Successfully");
   };
   //console.log(foodItemCards);
   return (

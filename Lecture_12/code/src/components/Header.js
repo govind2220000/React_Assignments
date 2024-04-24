@@ -20,7 +20,7 @@ const Header = () => {
   const cartItems = useSelector((store) => store.cart.items); //the cart here is referring to appStore reducer cart and not the cart in the cartSlice also useSelector is used for fetching/reading the values
   //console.log(cartItems);
   return (
-    <div className="flex justify-between bg-gray-100">
+    <div className="flex justify-between bg-gray-50">
       <div className="w-40 items-center">
         <Link to={"/"}>
           <img
