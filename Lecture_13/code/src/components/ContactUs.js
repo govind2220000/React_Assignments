@@ -1,7 +1,9 @@
+import Contact from "./Contact.js";
+
 const ContactUs = () => {
   return (
-    <div className="pt-">
-      <h1>Contact us Page</h1>
+    <div className="pt-40">
+      <Contact></Contact>
     </div>
   );
 };
