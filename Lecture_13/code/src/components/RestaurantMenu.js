@@ -52,6 +52,7 @@ const RestaurantMenu = () => {
   return (
     <div className="flex flex-col items-center w-full text-center pt-48">
       <div>
+        {console.log("rendered menu")}
         <h1 className="font-extrabold font-['Basis_Grotesque_Pro'] text-3xl leading-5 tracking-tight">
           {name}
         </h1>

@@ -6,7 +6,7 @@ const useRestaurantMenu = (resId) => {
   //Fetch the data
   useEffect(() => {
     fetchData();
-    //console.log("Hello i m custom hook from inside the useEffect");
+    console.log("Hello i m custom hook from inside the useEffect");
   }, []);
 
   const fetchData = async () => {
@@ -14,7 +14,7 @@ const useRestaurantMenu = (resId) => {
     const json = await data.json();
     setResInfo(json);
   };
-  //console.log("Hello i m custom hook after useEffect");
+  console.log("Hello i m custom hook after useEffect");
   return resInfo;
 };
 

@@ -50,11 +50,12 @@ const Header = () => {
               to="/cart"
               className="flex justify-center items-center hover:text-green-500 duration-[.3s]"
             >
-              <img
+              {/* <img
                 src="https://www.svgrepo.com/show/80543/shopping-cart-outline.svg"
                 className="w-4 h-4 h"
                 alt="Cart"
-              ></img>
+              ></img> */}
+              🛒
               {`(${cartItems.length})`}
             </Link>
           </li>
