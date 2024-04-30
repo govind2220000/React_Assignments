@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "npx parcel index.html",
-    "test": "jest"
+    "test": "jest",
+    "watch-test": "jest --watch"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",

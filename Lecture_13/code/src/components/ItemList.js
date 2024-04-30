@@ -15,6 +15,7 @@ const ItemList = ({ foodItemCards, addBtn = true, uniqueId = true }) => {
       {foodItemCards?.map((item) => {
         return (
           <div
+            data-testid="foodItems"
             className="flex justify-between border-b-2 m-auto w-full h-full"
             key={
               uniqueId === true

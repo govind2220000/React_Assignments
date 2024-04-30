@@ -15,8 +15,8 @@ const RestaurantCard = (props) => {
   } = resData?.info;
 
   return (
-    <div className="flex flex-col p-3 m-3  w-56 h-auto">
-      {console.log(deliveryTime)}
+    <div data-testid="resCard" className="flex flex-col p-3 m-3  w-56 h-auto">
+      {/* {console.log(deliveryTime)} */}
       <img
         className="w-full h-50"
         src={CDN_URL + cloudinaryImageId}

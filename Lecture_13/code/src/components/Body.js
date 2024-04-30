@@ -19,7 +19,7 @@ const Body = () => {
   // * Whenever a state variable updates or changes, react triggers a reconciliation cycle(re-renders the component)
 
   useEffect(() => {
-    console.log("fetch from body");
+    //console.log("fetch from body");
     fetchData();
   }, []);
 
@@ -31,7 +31,7 @@ const Body = () => {
   // * After initial redering is completed the useEffect will run and then it will rerender again with new data that is the reason if we see in
   // * console we will see below line "Body rendered will be seen"
 
-  console.log("Body rendered");
+  // console.log("Body rendered");
 
   const fetchData = async () => {
     const data = await fetch(
@@ -40,7 +40,7 @@ const Body = () => {
 
     const json = await data.json();
 
-    console.log(json);
+    //console.log(json);
     // * optional chaining
     // setListOfRestaurants(json.data.cards[2].data.data.cards);
     setListOfRestaurants(
@@ -69,6 +69,7 @@ const Body = () => {
           <form className="flex p-2 shadow-lg bg-gray-100 rounded-lg focus:outline-none focus:ring-2 w-full justify-between transition-shadow duration-300 hover:shadow-lg hover:shadow-gray-400">
             <input
               type="text"
+              data-testid="input"
               placeholder="Search a restaurant"
               className="bg-gray-100  outline-none w-full "
               value={searchText}
@@ -78,6 +79,7 @@ const Body = () => {
             />
             <button
               className=""
+              data-testid="search"
               onClick={(e) => {
                 // * Filter th restaurant cards and update the UI
                 // * searchText
@@ -110,15 +112,16 @@ const Body = () => {
           </form>
         </div>
         <button
+          data-testid="toprated"
           className="shadow-lg  bg-gray-100  rounded-lg p-2 mx-4 transition-shadow duration-300 hover:shadow-lg hover:shadow-gray-400"
           onClick={() => {
             // * Filter logic
             const filteredList = listOfRestaurants.filter(
-              (res) => res?.info?.avgRating > 4.5
+              (res) => res?.info?.avgRating > 4.3
             );
 
             setFilteredRestaurant(filteredList);
-            console.log(filteredList);
+            //console.log(filteredList);
           }}
         >
           Top Rated Restaurants
@@ -127,8 +130,8 @@ const Body = () => {
       <div className="flex flex-wrap">
         {/* // * looping through the <RestaurentCard /> components Using Array.map() method */}
 
-        {console.log("103", filteredRestaurant)}
-
+        {/* {console.log("103", filteredRestaurant)} */}
+        {/* {console.log(filteredRestaurant)} */}
         {filteredRestaurant.map((restaurant) => (
           <Link
             className="shadow-lg m-2 rounded-md transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-gray-800"
